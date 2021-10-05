@@ -3,30 +3,23 @@ import React from 'react';
 
 export class Clock extends React.Component {
 
-    useful_list = [
-        {
-            start: 0,
-            string: "first"
-        }, {
-            start: 10,
-            string: "second"
-        }
-    ];
-
     constructor(props) {
         super(props);
-
         this.state = {
             counter: 0,
         }
     }
 
     componentDidMount() {
-        this.timerId = setInterval((prevState)=>{
+        this.timerId = setInterval(() => {
             if (this.state.counter < 10) {
-            this.setState({
-                counter: this.state.counter+1
-            })}
+                this.setState((prevState) => {
+                    return {counter: prevState.counter + 1}
+                })
+            }
+            else {
+                clearInterval(this.timerId);
+            }
         }, 1000)
     }
 
@@ -37,7 +30,10 @@ export class Clock extends React.Component {
     render() {
         return (
             <div>
-                {this.useful_list.map((thing) => {return <div class="center">This is {thing.string} counter! <h1>{thing.start+this.state.counter}</h1></div>})}
+                <div className="center">
+                    This is {this.props.caption} counter!
+                    <h1>{this.props.start+this.state.counter}</h1>
+                </div>
             </div>
         );
     }
