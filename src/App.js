@@ -1,8 +1,12 @@
 import './App.css';
+import {Clock} from './Clock'
+
+//setInterval(tick, 1000);
 
 function App() {
   return (
-    <div>
+    <div class="container">
+      <Clock />
     </div>
   );
 }

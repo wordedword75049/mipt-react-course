@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: beige;
+}
+
+
+.center {
+    width: 300px;
+    border: 1px solid green;
+    padding-top: 10px;
+    text-align: center;
+}
