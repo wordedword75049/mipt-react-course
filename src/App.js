@@ -13,7 +13,7 @@ function App() {
         }
     ];
   return (
-    <div class="container">
+    <div className="container">
         {counters_params.map(
             (each_counter) =>
                 <Clock start={each_counter.start} caption={each_counter.string}/>)
