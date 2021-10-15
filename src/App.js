@@ -1,5 +1,6 @@
 import './App.css';
 import {Clock} from './Clock'
+import {NameForm} from "./NameForm";
 
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
             (each_counter) =>
                 <Clock start={each_counter.start} caption={each_counter.string}/>)
         }
+        <NameForm/>
     </div>
+
   );
 }
 
