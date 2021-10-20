@@ -9,7 +9,6 @@ export class NameForm extends React.Component {
             contact: '',
             exposed: false,
         };
-        this.keys = ['name', 'contact'];
         this.naming_strings = {
             name: 'Имя',
             contact: 'Контакт для связи'
@@ -25,26 +24,29 @@ export class NameForm extends React.Component {
     }
 
     handleClick() {
-        if (this.state.exposed === false) {
-            this.setState({
-                exposed: true
-            });
-        }
+        this.setState({
+            exposed: true
+        });
     }
 
     render() {
         let values;
         if (this.state.exposed) {
-            values = this.keys.map((name) => <div>{this.naming_strings[name]}: {this.state[name]}</div>)
+            values = Object.keys(this.naming_strings).map((name) => <div className='content'>{this.naming_strings[name]}: {this.state[name]}</div>)
                 }
         return (
-            <form>
-            <TextInput naming_strings={this.naming_strings} name='name' onTextChange={this.handleInputChange} value={this.state.name}/>
-            <br/>
-            <TextInput naming_strings={this.naming_strings} name='contact' onTextChange={this.handleInputChange} value={this.state.contact}/>
-            <br/>
-            <label><input type="button" value="Показать введенные данные" onClick={this.handleClick}/></label>
-                <br/>
+            <form className='container'>
+                <label className='content'>
+                    {this.naming_strings['name']}:
+                    <TextInput name='name' onTextChange={this.handleInputChange} value={this.state.name}/>
+                </label>
+                <label className='content' >
+                    {this.naming_strings['contact']}:
+                    <TextInput name='contact' onTextChange={this.handleInputChange} value={this.state.contact}/>
+                </label>
+                <label className='content'>
+                    <input type="button" value="Показать введенные данные" onClick={this.handleClick}/>
+                </label>
                 {values}
             </form>
         );

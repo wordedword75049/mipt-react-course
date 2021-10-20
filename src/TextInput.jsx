@@ -14,10 +14,7 @@ export class TextInput extends React.Component {
         const text = this.props.value;
         const name = this.props.name;
         return (
-            <label>
-                {this.props.naming_strings[name]}
-            <input type="text" name={name} value={text} onChange={this.handleChange}/>
-            </label>
+                <input type="text" name={name} value={text} onChange={this.handleChange}/>
         );
     }
 }

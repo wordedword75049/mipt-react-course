@@ -1,13 +1,10 @@
 .container {
-    display: grid;
-    justify-content: center;
-    background-color: beige;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: plum;
 }
 
-
-.center {
-    width: 300px;
-    border: 1px solid green;
-    padding-top: 10px;
-    text-align: center;
+.content {
+    margin: 5px;
 }
