@@ -1,5 +1,6 @@
 import React from "react";
-import {TextInput} from "./TextInput";
+import {InputSection} from "./InputSection";
+import {OutputSection} from "./OutputSection";
 
 export class NameForm extends React.Component {
     constructor(props) {
@@ -9,10 +10,6 @@ export class NameForm extends React.Component {
             contact: '',
             exposed: false,
         };
-        this.naming_strings = {
-            name: 'Имя',
-            contact: 'Контакт для связи'
-        }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleClick = this.handleClick.bind(this)
     }
@@ -30,24 +27,13 @@ export class NameForm extends React.Component {
     }
 
     render() {
-        let values;
-        if (this.state.exposed) {
-            values = Object.keys(this.naming_strings).map((name) => <div className='content'>{this.naming_strings[name]}: {this.state[name]}</div>)
-                }
         return (
             <form className='container'>
-                <label className='content'>
-                    {this.naming_strings['name']}:
-                    <TextInput name='name' onTextChange={this.handleInputChange} value={this.state.name}/>
-                </label>
-                <label className='content' >
-                    {this.naming_strings['contact']}:
-                    <TextInput name='contact' onTextChange={this.handleInputChange} value={this.state.contact}/>
-                </label>
+                <InputSection name={this.state.name} contact={this.state.contact} onTextInput={this.handleInputChange}/>
                 <label className='content'>
                     <input type="button" value="Показать введенные данные" onClick={this.handleClick}/>
                 </label>
-                {values}
+                <OutputSection exposed={this.state.exposed} name={this.state.name} contact={this.state.contact}/>
             </form>
         );
     }

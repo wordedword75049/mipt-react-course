@@ -5,6 +5,12 @@
     background-color: plum;
 }
 
+.sub_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .content {
     margin: 5px;
 }
